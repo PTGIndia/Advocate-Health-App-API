@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="09a29693e91642e4b8ded115f57b19c1" Name="Diagram1">
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.Category" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.Hospital" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.HospitalImages" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.JournalType" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.JournalVideo" Width="1.5" PointX="10.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.Notification" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.NotificationType" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.Profile" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.ProfileCategory" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.ProfileHistory" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.ProfileJournal" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.SubCategory" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.Tiles" Width="1.5" PointX="10.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvocateHealthCareModel.WeightTracker" Width="1.5" PointX="5.25" PointY="24.375" IsExpanded="true" />
+        <AssociationConnector Association="AdvocateHealthCareModel.FK__ProfileCa__Categ__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.FK__SubCatego__Categ__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_HospitalImages_Hospital_HospitalID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_Profile_Hospital_HospitalID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_ProfileJournal_JournalType_JournalTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_JournalVideo_SubCategory_SubCategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_Notification_NotificationType_NotificationTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_Notification_Profile_ProfileID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.FK__ProfileCa__Profi__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_ProfileHistory_Profile_ProfileID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_ProfileJournal_Profile_ProfileID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.fk_WeightTracker_Profile_ProfileID" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvocateHealthCareModel.FK__Tiles__SubCatego__6EF57B66" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

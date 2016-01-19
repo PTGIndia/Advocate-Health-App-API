@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdvocateHealthCareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProfileCategory" Relationship="Self.FK__ProfileCa__Categ__6C190EBB" FromRole="Category" ToRole="ProfileCategory" />
+    <NavigationProperty Name="SubCategory" Relationship="Self.FK__SubCatego__Categ__68487DD7" FromRole="Category" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="HospitalID" />
+    </Key>
+    <Property Name="HospitalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HospitalName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HospitalImages" Relationship="Self.fk_HospitalImages_Hospital_HospitalID" FromRole="Hospital" ToRole="HospitalImages" />
+    <NavigationProperty Name="Profile" Relationship="Self.fk_Profile_Hospital_HospitalID" FromRole="Hospital" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="HospitalImages">
+    <Key>
+      <PropertyRef Name="HospitalImagesID" />
+    </Key>
+    <Property Name="HospitalImagesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HospitalID" Type="Int32" Nullable="false" />
+    <Property Name="AssetURL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AssetText" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AssetImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AssetPositionID" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Hospital" Relationship="Self.fk_HospitalImages_Hospital_HospitalID" FromRole="HospitalImages" ToRole="Hospital" />
+  </EntityType>
+  <EntityType Name="JournalType">
+    <Key>
+      <PropertyRef Name="JournalTypeID" />
+    </Key>
+    <Property Name="JournalTypeID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JournalType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProfileJournal" Relationship="Self.fk_ProfileJournal_JournalType_JournalTypeID" FromRole="JournalType" ToRole="ProfileJournal" />
+  </EntityType>
+  <EntityType Name="JournalVideo">
+    <Key>
+      <PropertyRef Name="JournalVideoID" />
+    </Key>
+    <Property Name="JournalVideoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JournalVideoName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JournalVideoAsset" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubCategoryID" Type="Int32" />
+    <NavigationProperty Name="SubCategory" Relationship="Self.fk_JournalVideo_SubCategory_SubCategoryID" FromRole="JournalVideo" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationTypeID" Type="Byte" Nullable="false" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsRead" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="NotificationType" Relationship="Self.fk_Notification_NotificationType_NotificationTypeID" FromRole="Notification" ToRole="NotificationType" />
+    <NavigationProperty Name="Profile" Relationship="Self.fk_Notification_Profile_ProfileID" FromRole="Notification" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="NotificationType">
+    <Key>
+      <PropertyRef Name="NotificationTypeID" />
+    </Key>
+    <Property Name="NotificationTypeID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Notification" Relationship="Self.fk_Notification_NotificationType_NotificationTypeID" FromRole="NotificationType" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="ProfileID" />
+    </Key>
+    <Property Name="ProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="Binary" MaxLength="25" FixedLength="false" />
+    <Property Name="LMPdate" Type="DateTime" Precision="3" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HospitalID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Hospital" Relationship="Self.fk_Profile_Hospital_HospitalID" FromRole="Profile" ToRole="Hospital" />
+    <NavigationProperty Name="Notification" Relationship="Self.fk_Notification_Profile_ProfileID" FromRole="Profile" ToRole="Notification" />
+    <NavigationProperty Name="ProfileCategory" Relationship="Self.FK__ProfileCa__Profi__6B24EA82" FromRole="Profile" ToRole="ProfileCategory" />
+    <NavigationProperty Name="ProfileHistory" Relationship="Self.fk_ProfileHistory_Profile_ProfileID" FromRole="Profile" ToRole="ProfileHistory" />
+    <NavigationProperty Name="ProfileJournal" Relationship="Self.fk_ProfileJournal_Profile_ProfileID" FromRole="Profile" ToRole="ProfileJournal" />
+    <NavigationProperty Name="WeightTracker" Relationship="Self.fk_WeightTracker_Profile_ProfileID" FromRole="Profile" ToRole="WeightTracker" />
+  </EntityType>
+  <EntityType Name="ProfileCategory">
+    <Key>
+      <PropertyRef Name="ProfileCategoryID" />
+    </Key>
+    <Property Name="ProfileCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__ProfileCa__Categ__6C190EBB" FromRole="ProfileCategory" ToRole="Category" />
+    <NavigationProperty Name="Profile" Relationship="Self.FK__ProfileCa__Profi__6B24EA82" FromRole="ProfileCategory" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="ProfileHistory">
+    <Key>
+      <PropertyRef Name="ProfileHistoryID" />
+    </Key>
+    <Property Name="ProfileHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="Binary" MaxLength="50" FixedLength="false" />
+    <Property Name="LMPdate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Profile" Relationship="Self.fk_ProfileHistory_Profile_ProfileID" FromRole="ProfileHistory" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="ProfileJournal">
+    <Key>
+      <PropertyRef Name="ProfileJournalID" />
+    </Key>
+    <Property Name="ProfileJournalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="JournalTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JournalInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="JournalAsset" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JournalTypeID" Type="Byte" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="JournalType" Relationship="Self.fk_ProfileJournal_JournalType_JournalTypeID" FromRole="ProfileJournal" ToRole="JournalType" />
+    <NavigationProperty Name="Profile" Relationship="Self.fk_ProfileJournal_Profile_ProfileID" FromRole="ProfileJournal" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__SubCatego__Categ__68487DD7" FromRole="SubCategory" ToRole="Category" />
+    <NavigationProperty Name="JournalVideo" Relationship="Self.fk_JournalVideo_SubCategory_SubCategoryID" FromRole="SubCategory" ToRole="JournalVideo" />
+    <NavigationProperty Name="Tiles" Relationship="Self.FK__Tiles__SubCatego__6EF57B66" FromRole="SubCategory" ToRole="Tiles" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tiles">
+    <Key>
+      <PropertyRef Name="TileID" />
+    </Key>
+    <Property Name="TileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TileImage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SubCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SubCategory" Relationship="Self.FK__Tiles__SubCatego__6EF57B66" FromRole="Tiles" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="WeightTracker">
+    <Key>
+      <PropertyRef Name="WeightTrackerID" />
+    </Key>
+    <Property Name="WeightTrackerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Profile" Relationship="Self.fk_WeightTracker_Profile_ProfileID" FromRole="WeightTracker" ToRole="Profile" />
+  </EntityType>
+  <Association Name="FK__ProfileCa__Categ__6C190EBB">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="ProfileCategory" Type="Self.ProfileCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ProfileCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubCatego__Categ__68487DD7">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HospitalImages_Hospital_HospitalID">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+    <End Role="HospitalImages" Type="Self.HospitalImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="HospitalID" />
+      </Principal>
+      <Dependent Role="HospitalImages">
+        <PropertyRef Name="HospitalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Profile_Hospital_HospitalID">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+    <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="HospitalID" />
+      </Principal>
+      <Dependent Role="Profile">
+        <PropertyRef Name="HospitalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ProfileJournal_JournalType_JournalTypeID">
+    <End Role="JournalType" Type="Self.JournalType" Multiplicity="1" />
+    <End Role="ProfileJournal" Type="Self.ProfileJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JournalType">
+        <PropertyRef Name="JournalTypeID" />
+      </Principal>
+      <Dependent Role="ProfileJournal">
+        <PropertyRef Name="JournalTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_JournalVideo_SubCategory_SubCategoryID">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="JournalVideo" Type="Self.JournalVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="JournalVideo">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Notification_NotificationType_NotificationTypeID">
+    <End Role="NotificationType" Type="Self.NotificationType" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotificationType">
+        <PropertyRef Name="NotificationTypeID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="NotificationTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Notification_Profile_ProfileID">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProfileCa__Profi__6B24EA82">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="ProfileCategory" Type="Self.ProfileCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileID" />
+      </Principal>
+      <Dependent Role="ProfileCategory">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ProfileHistory_Profile_ProfileID">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="ProfileHistory" Type="Self.ProfileHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileID" />
+      </Principal>
+      <Dependent Role="ProfileHistory">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ProfileJournal_Profile_ProfileID">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="ProfileJournal" Type="Self.ProfileJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileID" />
+      </Principal>
+      <Dependent Role="ProfileJournal">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_WeightTracker_Profile_ProfileID">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="WeightTracker" Type="Self.WeightTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileID" />
+      </Principal>
+      <Dependent Role="WeightTracker">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tiles__SubCatego__6EF57B66">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+    <End Role="Tiles" Type="Self.Tiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="Tiles">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdvocateHealthCareEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" />
+    <EntitySet Name="HospitalImages" EntityType="Self.HospitalImages" />
+    <EntitySet Name="JournalType" EntityType="Self.JournalType" />
+    <EntitySet Name="JournalVideo" EntityType="Self.JournalVideo" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" />
+    <EntitySet Name="NotificationType" EntityType="Self.NotificationType" />
+    <EntitySet Name="Profile" EntityType="Self.Profile" />
+    <EntitySet Name="ProfileCategory" EntityType="Self.ProfileCategory" />
+    <EntitySet Name="ProfileHistory" EntityType="Self.ProfileHistory" />
+    <EntitySet Name="ProfileJournal" EntityType="Self.ProfileJournal" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tiles" EntityType="Self.Tiles" />
+    <EntitySet Name="WeightTracker" EntityType="Self.WeightTracker" />
+    <AssociationSet Name="FK__ProfileCa__Categ__6C190EBB" Association="Self.FK__ProfileCa__Categ__6C190EBB">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="ProfileCategory" EntitySet="ProfileCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubCatego__Categ__68487DD7" Association="Self.FK__SubCatego__Categ__68487DD7">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HospitalImages_Hospital_HospitalID" Association="Self.fk_HospitalImages_Hospital_HospitalID">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="HospitalImages" EntitySet="HospitalImages" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Profile_Hospital_HospitalID" Association="Self.fk_Profile_Hospital_HospitalID">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Profile" EntitySet="Profile" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ProfileJournal_JournalType_JournalTypeID" Association="Self.fk_ProfileJournal_JournalType_JournalTypeID">
+      <End Role="JournalType" EntitySet="JournalType" />
+      <End Role="ProfileJournal" EntitySet="ProfileJournal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_JournalVideo_SubCategory_SubCategoryID" Association="Self.fk_JournalVideo_SubCategory_SubCategoryID">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="JournalVideo" EntitySet="JournalVideo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Notification_NotificationType_NotificationTypeID" Association="Self.fk_Notification_NotificationType_NotificationTypeID">
+      <End Role="NotificationType" EntitySet="NotificationType" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Notification_Profile_ProfileID" Association="Self.fk_Notification_Profile_ProfileID">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProfileCa__Profi__6B24EA82" Association="Self.FK__ProfileCa__Profi__6B24EA82">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="ProfileCategory" EntitySet="ProfileCategory" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ProfileHistory_Profile_ProfileID" Association="Self.fk_ProfileHistory_Profile_ProfileID">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="ProfileHistory" EntitySet="ProfileHistory" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ProfileJournal_Profile_ProfileID" Association="Self.fk_ProfileJournal_Profile_ProfileID">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="ProfileJournal" EntitySet="ProfileJournal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_WeightTracker_Profile_ProfileID" Association="Self.fk_WeightTracker_Profile_ProfileID">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="WeightTracker" EntitySet="WeightTracker" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tiles__SubCatego__6EF57B66" Association="Self.FK__Tiles__SubCatego__6EF57B66">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="Tiles" EntitySet="Tiles" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(AdvocateHealthCareModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(AdvocateHealthCareModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spAuthenticateLogin" ReturnType="Collection(AdvocateHealthCareModel.spAuthenticateLogin_Result)">
+      <Parameter Name="UserEmailId" Mode="In" Type="String" />
+      <Parameter Name="UserPwd" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetContentSearch" ReturnType="Collection(AdvocateHealthCareModel.spGetContentSearch_Result)">
+      <Parameter Name="String" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetErrorInfo">
+      <Parameter Name="errorString" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetHosipitalDetails" ReturnType="Collection(AdvocateHealthCareModel.spGetHosipitalDetails_Result)" />
+    <FunctionImport Name="spGetHosipitalImages" ReturnType="Collection(AdvocateHealthCareModel.spGetHosipitalImages_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="HospitalID" Mode="In" Type="Int32" />
+      <Parameter Name="AssetPositionID" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLanguages" />
+    <FunctionImport Name="spGetTiles" ReturnType="Collection(AdvocateHealthCareModel.spGetTiles_Result)">
+      <Parameter Name="SUBCATEGORYID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserSavedImages" ReturnType="Collection(AdvocateHealthCareModel.spGetUserSavedImages_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveGoalsInfo">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveHospitalImages">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveHospitalInfo">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveJournalVideos">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveNotificationReadStatus">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="NotificationID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveNotifications">
+      <Parameter Name="loggedinuser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveProfileCategory">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveProfileInfo">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveProfileInfo1">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+      <Parameter Name="Return" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveProfileInfotest">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveProfileJournal">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveTilesInfo">
+      <Parameter Name="LoggedInUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSaveWeightTracker">
+      <Parameter Name="loggedinuser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetWeightEntries" ReturnType="Collection(AdvocateHealthCareModel.spGetWeightEntries_Result3)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetJournals" ReturnType="Collection(AdvocateHealthCareModel.spGetJournals_Result1)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="JournalTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetJournalVideos" ReturnType="Collection(AdvocateHealthCareModel.spGetJournalVideos_Result1)">
+      <Parameter Name="SUBCATEGORYID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetNotifications" ReturnType="Collection(AdvocateHealthCareModel.spGetNotifications_Result1)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="HospitalId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spAuthenticateLogin_Result">
+    <Property Type="Int32" Name="ProfileID" Nullable="true" />
+    <Property Type="Int32" Name="HospitalID" Nullable="true" />
+    <Property Type="Boolean" Name="Flag" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetContentSearch_Result">
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Content" Nullable="true" />
+    <Property Type="String" Name="TileImage" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="spGetHosipitalDetails_Result">
+    <Property Type="Int32" Name="HospitalID" Nullable="false" />
+    <Property Type="String" Name="HospitalName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spGetHosipitalImages_Result">
+    <Property Type="String" Name="AssetURL" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="AssetText" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="AssetImage" Nullable="true" MaxLength="100" />
+    <Property Type="Byte" Name="AssetPositionID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetJournals_Result">
+    <Property Type="Int32" Name="ProfileJournalID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="201" />
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JournalInfo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="JournalAsset" Nullable="true" />
+    <Property Type="DateTime" Name="LMPdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="createddate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Displaydate" Nullable="true" MaxLength="81" />
+  </ComplexType>
+  <ComplexType Name="spGetJournalVideos_Result">
+    <Property Type="String" Name="JOURNALVIDEONAME" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="JOURNALVIDEOASSET" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="spGetNotifications_Result">
+    <Property Type="Int32" Name="HospitalID" Nullable="false" />
+    <Property Type="Int32" Name="NotificationID" Nullable="false" />
+    <Property Type="String" Name="NotificationText" Nullable="true" />
+    <Property Type="String" Name="NotificationTitle" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="TypeOfNotification" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsRead" Nullable="true" />
+    <Property Type="DateTime" Name="NotificationDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="HospitalName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="201" />
+  </ComplexType>
+  <ComplexType Name="spGetTiles_Result">
+    <Property Type="String" Name="TITLE" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CONTENT" Nullable="true" />
+    <Property Type="String" Name="TILEIMAGE" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="spGetUserSavedImages_Result">
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JournalAsset" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="DisplayDate" Nullable="true" MaxLength="61" />
+  </ComplexType>
+  <ComplexType Name="spGetWeightEntries_Result">
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JournalAsset" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="DisplayDate" Nullable="true" MaxLength="61" />
+  </ComplexType>
+  <ComplexType Name="spGetWeightEntries_Result1">
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JournalAsset" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="DisplayDate" Nullable="true" MaxLength="61" />
+  </ComplexType>
+  <ComplexType Name="spGetWeightEntries_Result2">
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JournalAsset" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="DisplayDate" Nullable="true" MaxLength="61" />
+  </ComplexType>
+  <ComplexType Name="spGetWeightEntries_Result3">
+    <Property Type="Decimal" Name="Weight" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="DateTime" Name="LMPDATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="DisplayDate" Nullable="true" MaxLength="61" />
+  </ComplexType>
+  <ComplexType Name="spGetJournals_Result1">
+    <Property Type="Int32" Name="ProfileJournalID" Nullable="false" />
+    <Property Type="String" Name="ProfileName" Nullable="true" MaxLength="201" />
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JournalInfo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="JournalAsset" Nullable="true" />
+    <Property Type="DateTime" Name="LMPdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="createddate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Displaydate" Nullable="true" MaxLength="81" />
+  </ComplexType>
+  <ComplexType Name="spGetJournalVideos_Result1">
+    <Property Type="String" Name="JournalVideoName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="JournalVideoAsset" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="spGetNotifications_Result1">
+    <Property Type="Int32" Name="HospitalID" Nullable="false" />
+    <Property Type="Int32" Name="NotificationID" Nullable="false" />
+    <Property Type="String" Name="NotificationText" Nullable="true" />
+    <Property Type="String" Name="NotificationTitle" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="TypeOfNotification" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsRead" Nullable="true" />
+    <Property Type="DateTime" Name="NotificationDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="HospitalName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="201" />
+  </ComplexType>
+</Schema>

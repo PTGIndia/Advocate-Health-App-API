@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdvocateHealthCareModelStoreContainer" CdmEntityContainer="AdvocateHealthCareEntities">
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hospital">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.Hospital">
+        <MappingFragment StoreEntitySet="Hospital">
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="HospitalName" ColumnName="HospitalName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HospitalImages">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.HospitalImages">
+        <MappingFragment StoreEntitySet="HospitalImages">
+          <ScalarProperty Name="HospitalImagesID" ColumnName="HospitalImagesID" />
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="AssetURL" ColumnName="AssetURL" />
+          <ScalarProperty Name="AssetText" ColumnName="AssetText" />
+          <ScalarProperty Name="AssetImage" ColumnName="AssetImage" />
+          <ScalarProperty Name="AssetPositionID" ColumnName="AssetPositionID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JournalType">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.JournalType">
+        <MappingFragment StoreEntitySet="JournalType">
+          <ScalarProperty Name="JournalTypeID" ColumnName="JournalTypeID" />
+          <ScalarProperty Name="JournalType1" ColumnName="JournalType" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JournalVideo">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.JournalVideo">
+        <MappingFragment StoreEntitySet="JournalVideo">
+          <ScalarProperty Name="JournalVideoID" ColumnName="JournalVideoID" />
+          <ScalarProperty Name="JournalVideoName" ColumnName="JournalVideoName" />
+          <ScalarProperty Name="JournalVideoAsset" ColumnName="JournalVideoAsset" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notification">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="NotificationTypeID" ColumnName="NotificationTypeID" />
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationType">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.NotificationType">
+        <MappingFragment StoreEntitySet="NotificationType">
+          <ScalarProperty Name="NotificationTypeID" ColumnName="NotificationTypeID" />
+          <ScalarProperty Name="NotificationType1" ColumnName="NotificationType" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profile">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.Profile">
+        <MappingFragment StoreEntitySet="Profile">
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LMPdate" ColumnName="LMPdate" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileCategory">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.ProfileCategory">
+        <MappingFragment StoreEntitySet="ProfileCategory">
+          <ScalarProperty Name="ProfileCategoryID" ColumnName="ProfileCategoryID" />
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileHistory">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.ProfileHistory">
+        <MappingFragment StoreEntitySet="ProfileHistory">
+          <ScalarProperty Name="ProfileHistoryID" ColumnName="ProfileHistoryID" />
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LMPdate" ColumnName="LMPdate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileJournal">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.ProfileJournal">
+        <MappingFragment StoreEntitySet="ProfileJournal">
+          <ScalarProperty Name="ProfileJournalID" ColumnName="ProfileJournalID" />
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+          <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+          <ScalarProperty Name="JournalInfo" ColumnName="JournalInfo" />
+          <ScalarProperty Name="JournalAsset" ColumnName="JournalAsset" />
+          <ScalarProperty Name="JournalTypeID" ColumnName="JournalTypeID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategory">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tiles">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.Tiles">
+        <MappingFragment StoreEntitySet="Tiles">
+          <ScalarProperty Name="TileID" ColumnName="TileID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="TileImage" ColumnName="TileImage" />
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeightTracker">
+      <EntityTypeMapping TypeName="AdvocateHealthCareModel.WeightTracker">
+        <MappingFragment StoreEntitySet="WeightTracker">
+          <ScalarProperty Name="WeightTrackerID" ColumnName="WeightTrackerID" />
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="AdvocateHealthCareModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="AdvocateHealthCareModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="AdvocateHealthCareModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="AdvocateHealthCareModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="AdvocateHealthCareModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="AdvocateHealthCareModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="AdvocateHealthCareModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="spAuthenticateLogin" FunctionName="AdvocateHealthCareModel.Store.spAuthenticateLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spAuthenticateLogin_Result">
+          <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetContentSearch" FunctionName="AdvocateHealthCareModel.Store.spGetContentSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetContentSearch_Result">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="TileImage" ColumnName="TileImage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetErrorInfo" FunctionName="AdvocateHealthCareModel.Store.spGetErrorInfo" />
+    <FunctionImportMapping FunctionImportName="spGetHosipitalDetails" FunctionName="AdvocateHealthCareModel.Store.spGetHosipitalDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetHosipitalDetails_Result">
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="HospitalName" ColumnName="HospitalName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetHosipitalImages" FunctionName="AdvocateHealthCareModel.Store.spGetHosipitalImages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetHosipitalImages_Result">
+          <ScalarProperty Name="AssetURL" ColumnName="AssetURL" />
+          <ScalarProperty Name="AssetText" ColumnName="AssetText" />
+          <ScalarProperty Name="AssetImage" ColumnName="AssetImage" />
+          <ScalarProperty Name="AssetPositionID" ColumnName="AssetPositionID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetLanguages" FunctionName="AdvocateHealthCareModel.Store.spGetLanguages" />
+    <FunctionImportMapping FunctionImportName="spGetTiles" FunctionName="AdvocateHealthCareModel.Store.spGetTiles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetTiles_Result">
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+          <ScalarProperty Name="TILEIMAGE" ColumnName="TILEIMAGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserSavedImages" FunctionName="AdvocateHealthCareModel.Store.spGetUserSavedImages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetUserSavedImages_Result">
+          <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+          <ScalarProperty Name="JournalAsset" ColumnName="JournalAsset" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="DisplayDate" ColumnName="DisplayDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSaveGoalsInfo" FunctionName="AdvocateHealthCareModel.Store.spSaveGoalsInfo" />
+    <FunctionImportMapping FunctionImportName="spSaveHospitalImages" FunctionName="AdvocateHealthCareModel.Store.spSaveHospitalImages" />
+    <FunctionImportMapping FunctionImportName="spSaveHospitalInfo" FunctionName="AdvocateHealthCareModel.Store.spSaveHospitalInfo" />
+    <FunctionImportMapping FunctionImportName="spSaveJournalVideos" FunctionName="AdvocateHealthCareModel.Store.spSaveJournalVideos" />
+    <FunctionImportMapping FunctionImportName="spSaveNotificationReadStatus" FunctionName="AdvocateHealthCareModel.Store.spSaveNotificationReadStatus" />
+    <FunctionImportMapping FunctionImportName="spSaveNotifications" FunctionName="AdvocateHealthCareModel.Store.spSaveNotifications" />
+    <FunctionImportMapping FunctionImportName="spSaveProfileCategory" FunctionName="AdvocateHealthCareModel.Store.spSaveProfileCategory" />
+    <FunctionImportMapping FunctionImportName="spSaveProfileInfo" FunctionName="AdvocateHealthCareModel.Store.spSaveProfileInfo" />
+    <FunctionImportMapping FunctionImportName="spSaveProfileInfo1" FunctionName="AdvocateHealthCareModel.Store.spSaveProfileInfo1" />
+    <FunctionImportMapping FunctionImportName="spSaveProfileInfotest" FunctionName="AdvocateHealthCareModel.Store.spSaveProfileInfotest" />
+    <FunctionImportMapping FunctionImportName="spSaveProfileJournal" FunctionName="AdvocateHealthCareModel.Store.spSaveProfileJournal" />
+    <FunctionImportMapping FunctionImportName="spSaveTilesInfo" FunctionName="AdvocateHealthCareModel.Store.spSaveTilesInfo" />
+    <FunctionImportMapping FunctionImportName="spSaveWeightTracker" FunctionName="AdvocateHealthCareModel.Store.spSaveWeightTracker" />
+    <FunctionImportMapping FunctionImportName="spGetWeightEntries" FunctionName="AdvocateHealthCareModel.Store.spGetWeightEntries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetWeightEntries_Result3">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="LMPDATE" ColumnName="LMPDATE" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="DisplayDate" ColumnName="DisplayDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetJournals" FunctionName="AdvocateHealthCareModel.Store.spGetJournals">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetJournals_Result1">
+          <ScalarProperty Name="ProfileJournalID" ColumnName="ProfileJournalID" />
+          <ScalarProperty Name="ProfileName" ColumnName="ProfileName" />
+          <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+          <ScalarProperty Name="JournalInfo" ColumnName="JournalInfo" />
+          <ScalarProperty Name="JournalAsset" ColumnName="JournalAsset" />
+          <ScalarProperty Name="LMPdate" ColumnName="LMPdate" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="Displaydate" ColumnName="Displaydate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetJournalVideos" FunctionName="AdvocateHealthCareModel.Store.spGetJournalVideos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetJournalVideos_Result1">
+          <ScalarProperty Name="JournalVideoName" ColumnName="JournalVideoName" />
+          <ScalarProperty Name="JournalVideoAsset" ColumnName="JournalVideoAsset" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetNotifications" FunctionName="AdvocateHealthCareModel.Store.spGetNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AdvocateHealthCareModel.spGetNotifications_Result1">
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+          <ScalarProperty Name="NotificationTitle" ColumnName="NotificationTitle" />
+          <ScalarProperty Name="TypeOfNotification" ColumnName="TypeOfNotification" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="NotificationDate" ColumnName="NotificationDate" />
+          <ScalarProperty Name="HospitalName" ColumnName="HospitalName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
